@@ -1,0 +1,11 @@
+import "fake-indexeddb/auto";
+import { webcrypto } from "node:crypto";
+Object.defineProperty(globalThis, "crypto", {
+  value: webcrypto,
+  configurable: true,
+});
+window.matchMedia = (() => ({
+  matches: false,
+  addEventListener() {},
+  removeEventListener() {},
+})) as unknown as typeof window.matchMedia;
